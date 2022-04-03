@@ -19,9 +19,9 @@ if [ "$(id -nu)" != "root" ]; then
     # In case the password is not empty or null it will execute this branch
     # If it is wrong it will try to execute, but will fail
     echo "Synchroning package repositories:"
-    echo $pass | sudo -S pacman -Syy
+    echo $pass | sudo -S pacman -Syy --noconfirm
     echo "Updating packages"
-    echo $pass | sudo -S pacman -Suu
+    sudo -S pacman -Suu --noconfirm
     echo -e "OS Update....\e[1;32m[SUCCESS]\e[1;0m\n"
     else
         # In case root authentification fails
